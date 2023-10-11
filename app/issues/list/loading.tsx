@@ -1,4 +1,4 @@
-import IssueActions from "../IssueActions";
+import IssueActions from "./IssueActions";
 import { Table } from "@radix-ui/themes";
 import { Skeleton } from "@/app/components";
 
