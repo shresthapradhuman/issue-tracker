@@ -1,3 +1,4 @@
+"use client";
 import { IssueStatusBage } from "@/app/components";
 import { Issue } from "@prisma/client";
 import { Card, Flex, Heading, Text } from "@radix-ui/themes";
