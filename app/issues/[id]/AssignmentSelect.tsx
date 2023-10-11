@@ -13,7 +13,7 @@ const AssignmentSelect = ({ issue }: { issue: Issue }) => {
   return (
     <>
       <Select.Root
-        defaultValue={issue.assignedToUserId || ""}
+        defaultValue={issue.assignedToUserId || "empty"}
         onValueChange={(userId) => {
           axios
             .patch("/api/issues/" + issue.id, {
@@ -36,6 +36,7 @@ const AssignmentSelect = ({ issue }: { issue: Issue }) => {
         <Select.Content>
           <Select.Group>
             <Select.Label>Suggestions</Select.Label>
+            <Select.Item value={"empty"}>Unassigned</Select.Item>
             {users?.map((user) => (
               <Select.Item key={user.id} value={user.id}>
                 {user.name}
