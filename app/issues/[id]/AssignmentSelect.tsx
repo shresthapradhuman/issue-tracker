@@ -19,6 +19,14 @@ const AssignmentSelect = ({ issue }: { issue: Issue }) => {
             .patch("/api/issues/" + issue.id, {
               assignedToUserId: userId || null,
             })
+            .then((res) => {
+              if (res.status === 200) {
+                const data = res.data;
+                toast.success(
+                  `Issue is assigned to ${data.assignedToUser.name}`,
+                );
+              }
+            })
             .catch(() => {
               toast.error("Changes could not be saved.");
             });

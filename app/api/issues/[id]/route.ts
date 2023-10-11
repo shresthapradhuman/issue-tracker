@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { createIssueSchema, patchIssueSchema } from "@/app/validationSchema";
 import prisma from "@/prisma/client";
 import { getServerSession } from "next-auth";
@@ -45,6 +46,9 @@ export async function PATCH(
       title,
       description,
       assignedToUserId,
+    },
+    include: {
+      assignedToUser: true,
     },
   });
   return NextResponse.json(updatedIssue);
