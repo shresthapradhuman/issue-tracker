@@ -22,8 +22,8 @@ export async function PATCH(
       id: issue.id,
     },
     data: {
-      title: issue.title,
-      description: issue.description,
+      title: body.title,
+      description: body.description,
     },
   });
   return NextResponse.json(updatedIssue);
