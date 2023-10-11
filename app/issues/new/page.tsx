@@ -19,6 +19,7 @@ const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
 type IssueForm = z.infer<typeof createIssueSchema>;
 
 const NewIssuePage = () => {
+  const router = useRouter();
   const {
     register,
     control,
@@ -30,17 +31,16 @@ const NewIssuePage = () => {
   const [error, setError] = useState("");
   const [isSubmitting, setSubmitting] = useState(false);
   const onSubmit = handleSubmit(async (data) => {
-    setSubmitting(true);
     try {
+      setSubmitting(true);
       await axios.post("/api/issues", data);
       router.push("/issues");
     } catch (error) {
-      setError("An unexpected error occured");
-    } finally {
       setSubmitting(false);
+      setError("An unexpected error occured");
     }
   });
-  const router = useRouter();
+
   return (
     <div className="max-w-xl">
       {error && (
