@@ -11,7 +11,7 @@ const IssueDetails = ({ issue }: { issue: Issue }) => {
         <IssueStatusBage status={issue.status} />
         <Text>{issue.createdAt.toDateString()}</Text>
       </Flex>
-      <Card className="porse" mt={"4"}>
+      <Card className="porse max-w-full" mt={"4"}>
         <ReactMarkdown>{issue.description}</ReactMarkdown>
       </Card>
     </>
