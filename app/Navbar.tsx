@@ -14,6 +14,7 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {
   return (
@@ -26,7 +27,10 @@ const Navbar = () => {
             </Link>
             <NavLinks />
           </Flex>
-          <AuthStatus />
+          <Flex align={"center"} gap={"3"}>
+            <ThemeSwitch />
+            <AuthStatus />
+          </Flex>
         </Flex>
       </Container>
     </nav>
@@ -46,7 +50,7 @@ const NavLinks = () => {
           <Link
             className={classNames({
               "nav-link": true,
-              "!text-zinc-900": link.href === currentPath,
+              "!text-zinc-900 dark:!text-white": link.href === currentPath,
             })}
             href={link.href}
           >
