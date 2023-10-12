@@ -1,6 +1,6 @@
 ## Getting Started
 
-This is the completed source code for the issue tracker project I build following mosh hamedani Ultimate Next.js series. But I user mongodb instead of mysql. You can find the full course here:
+This is the completed source code for the issue tracker project I build following mosh hamedani Ultimate Next.js series. But I used mongodb instead of mysql. You can find the full course here:
 
 https://codewithmosh.com/p/ultimate-nextjs-series
 
