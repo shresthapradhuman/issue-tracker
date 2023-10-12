@@ -9,12 +9,26 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      httpOptions: {
-        timeout: 40000,
-      },
     }),
   ],
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async session({ token, session }) {
+      if (token) {
+        session.user.role = token.role!;
+      }
+      return session;
+    },
+    async jwt({ token }) {
+      const user = await prisma.user.findUnique({
+        where: {
+          email: token.email!,
+        },
+      });
+      token.role = user?.role;
+      return token;
+    },
   },
 };

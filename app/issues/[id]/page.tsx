@@ -15,11 +15,12 @@ interface Props {
 }
 
 const fetchUser = cache((issueId: string) =>
-  prisma.issue.findUnique({ where: { id: issueId } })
+  prisma.issue.findUnique({ where: { id: issueId } }),
 );
 
 const IssueDetailPage = async ({ params }: Props) => {
   const session = await getServerSession(authOptions);
+  console.log(session);
   const issue = await fetchUser(params.id);
   if (!issue) notFound();
   return (
