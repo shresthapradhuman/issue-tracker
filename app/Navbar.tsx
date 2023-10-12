@@ -80,7 +80,7 @@ const AuthStatus = () => {
             referrerPolicy="no-referrer"
           />
         </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
+        <DropdownMenu.Content align="end" sideOffset={10}>
           <DropdownMenu.Label>
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
