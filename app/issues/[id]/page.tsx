@@ -20,7 +20,6 @@ const IssueDetailPage = async ({ params }: Props) => {
       id: params.id,
     },
   });
-  console.log(issue);
   if (!issue) notFound();
   return (
     <Grid columns={{ initial: "1", sm: "5" }} gap="5">
@@ -30,7 +29,7 @@ const IssueDetailPage = async ({ params }: Props) => {
       {session && (
         <Box>
           <Flex direction={"column"} gap={"4"}>
-            <AssignmentSelect />
+            <AssignmentSelect issue={issue} />
             <EditIssueButton issueId={issue.id} />
             <DeleteIssueButton issueId={issue.id} />
           </Flex>
