@@ -4,6 +4,7 @@ import { Table } from "@radix-ui/themes";
 import React from "react";
 import NextLink from "next/link";
 import { ArrowUpIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export interface IssueQuery {
   status: Status;
@@ -45,11 +46,18 @@ const IssueTable = ({ searchParams, issues }: Props) => {
       <Table.Body>
         {issues.map((issue) => (
           <Table.Row key={issue.id}>
-            <Table.Cell>{issue.title}</Table.Cell>
             <Table.Cell>
+              <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
+              <div className="block md:hidden">
+                <IssueStatusBadge status={issue.status} />
+              </div>
+            </Table.Cell>
+            <Table.Cell className="hidden md:table-cell">
               <IssueStatusBadge status={issue.status} />
             </Table.Cell>
-            <Table.Cell>{issue.createdAt.toDateString()}</Table.Cell>
+            <Table.Cell className="hidden md:table-cell">
+              {issue.createdAt.toDateString()}
+            </Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>

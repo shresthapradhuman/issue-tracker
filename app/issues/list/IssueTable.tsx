@@ -4,7 +4,7 @@ import { Table } from "@radix-ui/themes";
 import React from "react";
 import NextLink from "next/link";
 import Link from "next/link";
-import { IssueStatusBage } from "@/app/components";
+import { IssueStatusBadge } from "@/app/components";
 
 export interface IssueQuery {
   status: Status;
@@ -50,11 +50,11 @@ const IssueTable = ({ searchParams, issues }: Props) => {
             <Table.Cell>
               <Link href={`/issues/${issue.id}`}>{issue.title}</Link>
               <div className="block md:hidden">
-                <IssueStatusBage status={issue.status} />
+                <IssueStatusBadge status={issue.status} />
               </div>
             </Table.Cell>
             <Table.Cell className="hidden md:table-cell">
-              <IssueStatusBage status={issue.status} />
+              <IssueStatusBadge status={issue.status} />
             </Table.Cell>
             <Table.Cell className="hidden md:table-cell">
               {issue.createdAt.toDateString()}
