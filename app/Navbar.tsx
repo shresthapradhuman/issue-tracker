@@ -90,7 +90,7 @@ const AuthStatus = () => {
             <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
-            <Link href="/users/issues">Issue Assigned</Link>
+            <Link href="/users/issues">Assigned Issue</Link>
           </DropdownMenu.Item>
           <DropdownMenu.Item>
             <Link href="/api/auth/signout">Log out</Link>
